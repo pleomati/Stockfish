@@ -48,7 +48,7 @@ namespace Eval::NNUE {
   #define vec_store(a,b) _mm256_store_si256(a,b)
   #define vec_add_16(a,b) _mm256_add_epi16(a,b)
   #define vec_sub_16(a,b) _mm256_sub_epi16(a,b)
-  static constexpr IndexType kNumRegs = 16;
+  static constexpr IndexType kNumRegs = 12;
 
   #elif USE_SSE2
   typedef __m128i vec_t;
@@ -56,7 +56,7 @@ namespace Eval::NNUE {
   #define vec_store(a,b) *(a)=(b)
   #define vec_add_16(a,b) _mm_add_epi16(a,b)
   #define vec_sub_16(a,b) _mm_sub_epi16(a,b)
-  static constexpr IndexType kNumRegs = Is64Bit ? 16 : 8;
+  static constexpr IndexType kNumRegs = Is64Bit ? 12 : 8;
 
   #elif USE_MMX
   typedef __m64 vec_t;
